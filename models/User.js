@@ -15,22 +15,28 @@ User.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      // equivalent of SQL's `NOT NULL` option //
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
+    // define username column //
     username: {
       type: DataTypes.STRING,
       allowNull: false
     },
+
+    //define email column //
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      // no duplicate emails in this table //
       unique: true,
       validate: {
         isEmail: true
       }
     },
+    // define password column //
     password: {
       type: DataTypes.STRING,
       allowNull: false,
